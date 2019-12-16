@@ -1,6 +1,11 @@
 <template>
-  <div class="flexBooks">
-    <app-book v-for="(book, i) in books" v-bind:book="book" v-bind:key="`book-${i}`"></app-book>
+  <div>
+    <div class="flexSearch">
+      <input type="text" placeholder="Search books" class="searchBar" v-model="search" />
+    </div>
+    <div class="flexBooks">
+      <app-book v-for="(book, i) in filteredBooks" v-bind:book="book" v-bind:key="`book-${i}`"></app-book>
+    </div>
   </div>
 </template>
 
@@ -12,7 +17,8 @@ export default {
   },
   data() {
     return {
-      books: []
+      books: [],
+      search: ""
     };
   },
   methods: {
@@ -34,6 +40,16 @@ export default {
         });
     }
   },
+  computed: {
+    filteredBooks: function() {
+      return this.books.filter(book => {
+        return (
+          book.title.includes(this.search) ||
+          book.description.includes(this.search)
+        );
+      });
+    }
+  },
   created() {
     this.getData();
   }
@@ -46,5 +62,24 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.flexSearch {
+  /*display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: baseline;
+  margin-bottom: 50px;
+  margin-right: 10%;*/
+  position: absolute;
+  top: 140px;
+  right: 15%;
+}
+
+.searchBar {
+  border-color: black;
+  border-width: 3px;
+  height: 40px;
+  font-size: 30px;
 }
 </style>

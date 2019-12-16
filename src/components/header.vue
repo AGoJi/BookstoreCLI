@@ -1,10 +1,6 @@
 <template>
   <div class="header">
-    <img class="logo" src="~@/assets/UBSlogo.png" />
-    <div class="flexSearch">
-      <input type="text" placeholder="Search books" class="searchBar" />
-      <!-- v-model="search" -->
-    </div>
+    <img class="logo" src="@/assets/UBSlogo.png" />
   </div>
 </template>
 
@@ -16,24 +12,12 @@ export default {};
 .header {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-}
-
-.flexSearch {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.searchBar {
-  border-color: black;
-  border-width: 3px;
-  height: 40px;
-  font-size: 30px;
+  justify-content: flex-start;
+  margin-left: 15%;
 }
 
 .logo {
-  width: 250px;
+  width: 300px;
   height: auto;
 }
 </style>
