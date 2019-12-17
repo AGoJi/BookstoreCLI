@@ -1,5 +1,10 @@
 <template>
   <div>
+    <img v-if="books.length==0" src="@/assets/loader.gif" alt="Loading..." class="loader" />
+    <p
+      v-else-if="filteredBooks.length==0"
+      class="message"
+    >SORRY, WE COULD'NT FIND ANY RESULTS MATCHING.</p>
     <div class="flexSearch">
       <input type="text" placeholder="Search books" class="searchBar" v-model="search" />
     </div>
@@ -65,12 +70,6 @@ export default {
 }
 
 .flexSearch {
-  /*display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: baseline;
-  margin-bottom: 50px;
-  margin-right: 10%;*/
   position: absolute;
   top: 140px;
   right: 15%;
@@ -81,5 +80,17 @@ export default {
   border-width: 3px;
   height: 40px;
   font-size: 30px;
+}
+
+.loader {
+  position: absolute;
+  left: 40%;
+}
+
+.message {
+  font-size: 40px;
+  font-weight: bold;
+  margin-right: 8%;
+  margin-left: 8%;
 }
 </style>

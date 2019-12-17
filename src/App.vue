@@ -21,7 +21,7 @@ body {
   font-family: Arial;
   margin-right: 5%;
   margin-left: 5%;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   background-color: rgb(102, 102, 102);
 }
 </style>
